@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BookReader.ViewModels
+namespace AvaloniaApplication3.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {

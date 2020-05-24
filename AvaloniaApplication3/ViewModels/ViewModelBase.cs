@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using ReactiveUI;
 
-namespace BookReader.ViewModels
+namespace AvaloniaApplication3.ViewModels
 {
     public class ViewModelBase : ReactiveObject
     {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AvaloniaApplication2.Models
+namespace BookReader.Models
 {
     public class BookReaderContext : DbContext
     {

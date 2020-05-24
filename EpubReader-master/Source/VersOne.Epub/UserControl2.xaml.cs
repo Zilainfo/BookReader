@@ -2,16 +2,13 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace BookReader.Views
+namespace VersOne.Epub
 {
-    public class MainWindow : Window
+    public class UserControl2 : UserControl
     {
-        public MainWindow()
+        public UserControl2()
         {
-            InitializeComponent();
-#if DEBUG
-            this.AttachDevTools();
-#endif
+            this.InitializeComponent();
         }
 
         private void InitializeComponent()

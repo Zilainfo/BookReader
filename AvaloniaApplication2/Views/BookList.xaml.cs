@@ -4,14 +4,11 @@ using Avalonia.Markup.Xaml;
 
 namespace BookReader.Views
 {
-    public class MainWindow : Window
+    public class BookList : UserControl
     {
-        public MainWindow()
+        public BookList()
         {
-            InitializeComponent();
-#if DEBUG
-            this.AttachDevTools();
-#endif
+            this.InitializeComponent();
         }
 
         private void InitializeComponent()

@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using BookReader.ViewModels;
+using AvaloniaApplication3.ViewModels;
 
-namespace BookReader
+namespace AvaloniaApplication3
 {
     public class ViewLocator : IDataTemplate
     {

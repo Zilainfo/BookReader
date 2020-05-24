@@ -1,10 +1,10 @@
 ﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using BookReader.ViewModels;
-using BookReader.Views;
+using AvaloniaApplication3.ViewModels;
+using AvaloniaApplication3.Views;
 
-namespace BookReader
+namespace AvaloniaApplication3
 {
     public class App : Application
     {
