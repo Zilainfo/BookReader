@@ -3,6 +3,8 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using BookReader.ViewModels;
 using BookReader.Views;
+using BookReader.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookReader
 {
@@ -17,9 +19,13 @@ namespace BookReader
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
+                var db = new BookReaderContext();
+            
+                 db.Database.Migrate();
+                
                 desktop.MainWindow = new MainWindow
                 {
-                    DataContext = new MainWindowViewModel(),
+                    DataContext = new MainWindowViewModel(db),
                 };
             }
 
