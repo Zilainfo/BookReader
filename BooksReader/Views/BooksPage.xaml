@@ -1,0 +1,134 @@
+﻿<Page
+    x:Class="BooksReader.Views.BooksPage"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Style="{StaticResource PageStyle}"
+    xmlns:prismMvvm="using:Prism.Windows.Mvvm"
+    prismMvvm:ViewModelLocator.AutoWireViewModel="True"
+    xmlns:model="using:BooksReader.Core.Models"
+    mc:Ignorable="d">
+    <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
+        
+            <StackPanel>
+
+                <StackPanel Orientation = "Horizontal">
+
+                    <ToggleButton x:Name = "HamburgerButton" FontFamily = "Segoe MDL2 Assets"
+               Content = ""
+               HorizontalAlignment = "Center"/>
+
+                    <AppBarButton Icon = "Like" />
+                    <AppBarButton Icon = "Dislike" />
+                    <AppBarSeparator/>
+                    <AppBarButton Icon = "Accept" />
+                    <AppBarButton Icon = "Add" />
+
+                </StackPanel>
+
+            <Grid>
+                <controls:DataGrid
+                AutoGenerateColumns="False"
+                GridLinesVisibility="Horizontal"
+                ItemsSource="{x:Bind ViewModel.Source, Mode=OneWay}">
+                    <controls:DataGrid.Columns>
+                        <!--
+                        TODO WTS:
+                        Remove this column definitions and define columns for your data.
+                        Consider adding header properties to Resources.resw
+                    -->
+                        <controls:DataGridTextColumn Binding="{Binding OrderID}" Header="OrderID" />
+                        <controls:DataGridTextColumn Binding="{Binding OrderDate}" Header="OrderDate" />
+                        <controls:DataGridTextColumn Binding="{Binding Company}" Header="Company" />
+                        <controls:DataGridTextColumn Binding="{Binding ShipTo}" Header="ShipTo" />
+                        <controls:DataGridTextColumn Binding="{Binding OrderTotal}" Header="OrderTotal" />
+                        <controls:DataGridTextColumn Binding="{Binding Status}" Header="Status" />
+                        <controls:DataGridTemplateColumn Header="Symbol">
+                            <controls:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate x:DataType="model:SampleOrder">
+                                    <FontIcon
+                                    Margin="{StaticResource SmallLeftRightMargin}"
+                                    HorizontalAlignment="Left"
+                                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                    Glyph="{x:Bind Symbol}" />
+                                </DataTemplate>
+                            </controls:DataGridTemplateColumn.CellTemplate>
+                        </controls:DataGridTemplateColumn>
+                    </controls:DataGrid.Columns>
+                </controls:DataGrid>
+            </Grid>
+
+
+
+
+            <SplitView x:Name = "splitView" DisplayMode = "Inline" 
+            OpenPaneLength = "296">
+
+                    <SplitView.Pane>
+                        <StackPanel>
+                            <TextBlock Text = "SplitView Pane" FontSize = "36" 
+                     VerticalAlignment = "Center" HorizontalAlignment = "Center" 
+                     Margin = "10"/>
+
+                            <Button Content = "Options" Margin = "10">
+
+                                <Button.Flyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem Text = "Reset"/>
+                                        <MenuFlyoutSeparator/>
+                                        <MenuFlyoutItem Text = "Repeat"/>
+                                        <MenuFlyoutItem Text = "Shuffle"/>
+                                    </MenuFlyout>
+                                </Button.Flyout>
+
+                            </Button>
+
+                        </StackPanel>
+                    </SplitView.Pane>
+
+                    <StackPanel>
+
+                        <TextBlock Text = "SplitView Content" FontSize = "36" 
+                  VerticalAlignment = "Center" HorizontalAlignment = "Center" 
+                  Margin = "10"/>
+
+                        <Border BorderThickness = "3" BorderBrush = "Red" Margin = "5">
+                            <StackPanel Orientation = "Horizontal">
+                                <TextBlock Text = "Hyperlink example" Margin = "5"/>
+                                <HyperlinkButton Content = "www.microsoft.com" 
+                        NavigateUri = "http://www.microsoft.com"/>
+                            </StackPanel>
+                        </Border>
+
+                        <RelativePanel BorderBrush = "Red" BorderThickness = "2"  
+                  CornerRadius = "10" Padding = "12" Margin = "5">
+
+                            <TextBlock x:Name = "txt" Text = "Relative Panel example" 
+                     RelativePanel.AlignLeftWithPanel = "True" 
+                     Margin = "5,0,0,0"/>
+
+                            <TextBox x:Name = "textBox1" RelativePanel.RightOf = "btn" 
+                     Margin = "5,0,0,0"/>
+
+                            <Button x:Name = "btn" Content = "Name"  
+                     RelativePanel.RightOf = "txt" Margin = "5,0,0,0"/>
+
+                        </RelativePanel>
+
+                        <FlipView Height = "400" Margin = "10" Width = "400">
+                            <Image Source = "Images/DSC_0104.JPG"/>
+                            <Image Source = "Images/DSC_0080.JPG"/>
+                            <Image Source = "Images/DSC_0076.JPG"/>
+                            <Image Source = "Images/thGTF7BWGW.jpg"/>
+                        </FlipView>
+
+                    </StackPanel>
+
+                </SplitView>
+
+            </StackPanel>
+     
+    </Grid>
+</Page>

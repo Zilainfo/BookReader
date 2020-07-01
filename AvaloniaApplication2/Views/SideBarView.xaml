@@ -1,0 +1,36 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="BookReader.Views.sa">
+	<Grid>
+		<Grid.Styles>
+			<Style Selector="TextBlock.h2">
+				<Setter Property="TextWrapping" Value="Wrap"/>
+				<Setter Property="MaxWidth" Value="400"/>
+				<Setter Property="HorizontalAlignment" Value="Left"/>
+			</Style>
+		</Grid.Styles>
+		<TabControl Classes="sidebar" Name="Sidebar">
+			<TabItem Header="AutoCompleteBox">
+				
+			</TabItem>
+			
+			<TabControl.Tag>
+				<StackPanel Width="115" Spacing="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="8">
+					<ComboBox x:Name="Decorations" SelectedIndex="0">
+						<ComboBoxItem>No Decorations</ComboBoxItem>
+						<ComboBoxItem>Border Only</ComboBoxItem>
+						<ComboBoxItem>Full Decorations</ComboBoxItem>
+					</ComboBox>
+					<ComboBox x:Name="Themes" SelectedIndex="0">
+						<ComboBoxItem>Light</ComboBoxItem>
+						<ComboBoxItem>Dark</ComboBoxItem>
+					</ComboBox>
+					<ComboBox Items="{Binding WindowStates}" SelectedItem="{Binding WindowState}" />
+				</StackPanel>
+			</TabControl.Tag>
+		</TabControl>
+	</Grid>
+</UserControl>
